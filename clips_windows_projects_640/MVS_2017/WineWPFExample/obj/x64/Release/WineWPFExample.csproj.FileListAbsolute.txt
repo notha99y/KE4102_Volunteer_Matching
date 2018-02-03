@@ -1,0 +1,16 @@
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\obj\x64\Release\WineMainWindow.g.cs
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\obj\x64\Release\App.g.cs
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\obj\x64\Release\WineWPFExample_MarkupCompile.cache
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\obj\x64\Release\WineWPFExample_MarkupCompile.lref
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\bin\x64\Release\WineWPFExample.exe.config
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\bin\x64\Release\WineWPFExample.exe
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\bin\x64\Release\WineWPFExample.pdb
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\bin\x64\Release\CLIPSCLRWrapper.dll
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\bin\x64\Release\CLIPSCLRWrapper.pdb
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\obj\x64\Release\WineMainWindow.baml
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\obj\x64\Release\WineWPFExample.g.resources
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\obj\x64\Release\WineWPFExample.Properties.Resources.resources
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\obj\x64\Release\WineWPFExample.csproj.GenerateResource.Cache
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\obj\x64\Release\WineWPFExample.csproj.CoreCompileInputs.cache
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\obj\x64\Release\WineWPFExample.exe
+C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\WineWPFExample\obj\x64\Release\WineWPFExample.pdb
