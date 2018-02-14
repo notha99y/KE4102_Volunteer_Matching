@@ -173,11 +173,11 @@
   tmpltpsr.c
   tmpltrhs.c
   Generating Code...
-c:\users\sercy\documents\further studies\clips\clips_windows_projects_640\mvs_2017\shared\source\clips\sysdep.c(340): warning C4793: 'gensprintf': function compiled as native:
+c:\users\sercy\documents\github\ke4102_volunteer_matching\clips_windows_projects_640\mvs_2017\shared\source\clips\sysdep.c(340): warning C4793: 'gensprintf': function compiled as native:
   	varargs not supported under /clr
-c:\users\sercy\documents\further studies\clips\clips_windows_projects_640\mvs_2017\shared\source\clips\sysdep.c(344): warning C4793: 'gensprintf': function compiled as native:
+c:\users\sercy\documents\github\ke4102_volunteer_matching\clips_windows_projects_640\mvs_2017\shared\source\clips\sysdep.c(344): warning C4793: 'gensprintf': function compiled as native:
   	Found an intrinsic not supported in managed code
-c:\users\sercy\documents\further studies\clips\clips_windows_projects_640\mvs_2017\shared\source\clips\sysdep.c(348): warning C4793: 'gensprintf': function compiled as native:
+c:\users\sercy\documents\github\ke4102_volunteer_matching\clips_windows_projects_640\mvs_2017\shared\source\clips\sysdep.c(348): warning C4793: 'gensprintf': function compiled as native:
   	Found an intrinsic not supported in managed code
   Compiling...
   tmpltutl.c
@@ -206,4 +206,4 @@ c:\users\sercy\documents\further studies\clips\clips_windows_projects_640\mvs_20
   Generating Code...
   .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
   LINK : /LTCG specified but no code generation required; remove /LTCG from the link command line to improve linker performance
-  CLIPSCLRWrapper.vcxproj -> C:\Users\sercy\Documents\Further Studies\CLIPS\clips_windows_projects_640\MVS_2017\CLIPSCLRWrapper\Libraries\x64\Release\CLIPSCLRWrapper.dll
+  CLIPSCLRWrapper.vcxproj -> C:\Users\sercy\Documents\GitHub\KE4102_Volunteer_Matching\clips_windows_projects_640\MVS_2017\CLIPSCLRWrapper\Libraries\x64\Release\CLIPSCLRWrapper.dll

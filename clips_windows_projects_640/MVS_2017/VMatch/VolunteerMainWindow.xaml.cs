@@ -22,7 +22,7 @@ namespace VMatch
     {
         private class WineRecommendation
         {
-            public string WineName { get; set; }
+            public string VwoName { get; set; }
             public int Certainty { get; set; }
             public string CertaintyText { get; set; }
             public string CertaintyWidthTaken { get; set; }
@@ -270,11 +270,11 @@ namespace VMatch
             {
                 int certainty = (int)(((NumberValue)fv["certainty"]));
 
-                String wineName = ((LexemeValue)fv["value"]).Value;
+                String vwoName = ((LexemeValue)fv["value"]).Value;
 
                 wineList.Add(new WineRecommendation()
                 {
-                    WineName = wineName,
+                    VwoName = vwoName,
                     Certainty = certainty,
                     CertaintyText = certainty + "%",
                     CertaintyWidthTaken = certainty + "*",

@@ -1,14 +1,14 @@
 
 ;;;======================================================
-;;;   Wine Expert Sample Problem
+;;;   VWO Recommender System
 ;;;
-;;;     WINEX: The WINe EXpert system.
-;;;     This example selects an appropriate wine
-;;;     to drink with a meal.
+;;;   This system reccomends a VWO
+;;;   to a potential volunteer. 
+;;;     
+;;;   VWO = Voluntary Welfare Organisation 
+;;;     
 ;;;
-;;;     CLIPS Version 6.3 Example
-;;;
-;;;     For use with the CLIPSJNI
+;;;     
 ;;;======================================================
 
 (defmodule MAIN (export ?ALL))
@@ -221,7 +221,7 @@
 )
 
 ;;************************
-;;* WINE SELECTION RULES *
+;;* VWO SELECTION RULES *
 ;;************************
 
 (defmodule WINES (import MAIN ?ALL)
@@ -239,20 +239,20 @@
   (multislot sweetness (default any)))
 
 (deffacts WINES::the-wine-list 
-  (wine (name "Gamay") (color red) (body medium) (sweetness medium sweet))
-  (wine (name "Chablis") (color white) (body light) (sweetness dry))
-  (wine (name "Sauvignon Blanc") (color white) (body medium) (sweetness dry))
-  (wine (name "Chardonnay") (color white) (body medium full) (sweetness medium dry))
-  (wine (name "Soave") (color white) (body light) (sweetness medium dry))
-  (wine (name "Riesling") (color white) (body light medium) (sweetness medium sweet))
-  (wine (name "Geverztraminer") (color white) (body full))
-  (wine (name "Chenin Blanc") (color white) (body light) (sweetness medium sweet))
-  (wine (name "Valpolicella") (color red) (body light))
-  (wine (name "Cabernet Sauvignon") (color red) (sweetness dry medium))
-  (wine (name "Zinfandel") (color red) (sweetness dry medium))
-  (wine (name "Pinot Noir") (color red) (body medium) (sweetness medium))
-  (wine (name "Burgundy") (color red) (body full))
-  (wine (name "Zinfandel") (color red) (sweetness dry medium)))
+  (wine (name "Singapore Red Cross") (color red) (body medium) (sweetness medium sweet))
+  (wine (name "AWWA") (color white) (body light) (sweetness dry))
+  (wine (name "SPCA") (color white) (body medium) (sweetness dry))
+  (wine (name "VWO A") (color white) (body medium full) (sweetness medium dry))
+  (wine (name "VWO B") (color white) (body light) (sweetness medium dry))
+  (wine (name "VWO C") (color white) (body light medium) (sweetness medium sweet))
+  (wine (name "VWO D") (color white) (body full))
+  (wine (name "VWO E") (color white) (body light) (sweetness medium sweet))
+  (wine (name "VWO F") (color red) (body light))
+  (wine (name "VWO G") (color red) (sweetness dry medium))
+  (wine (name "VWO H") (color red) (sweetness dry medium))
+  (wine (name "VWO I") (color red) (body medium) (sweetness medium))
+  (wine (name "VWO K") (color red) (body full))
+  (wine (name "VWO L") (color red) (sweetness dry medium)))
   
   
 (defrule WINES::generate-wines
