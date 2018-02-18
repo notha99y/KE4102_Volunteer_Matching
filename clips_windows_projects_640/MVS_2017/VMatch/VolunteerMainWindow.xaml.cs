@@ -20,7 +20,7 @@ namespace VMatch
 {
     public partial class MainWindow : Window
     {
-        private class WineRecommendation
+        private class VWORecommendation
         {
             public string VwoName { get; set; }
             public int Certainty { get; set; }
@@ -29,21 +29,31 @@ namespace VMatch
             public string CertaintyWidthLeft { get; set; }
         }
 
-        String[] preferredColorNames = { "Don't Care", "Red", "White" };
-        String[] preferredBodyNames = { "Don't Care", "Light", "Medium", "Full" };
-        String[] preferredSweetnessNames = { "Don't Care", "Dry", "Medium", "Sweet" };
+        String[] preferredFrequencyNames = { "Don't Care", "AdHoc", "Annually" };
+        String[] preferredOrgTypeNames = { "Don't Care", "Medical", "SocialSvc.Women", "SocialSvc.Children", "Animal", "Sports"};
+        String[] preferredAreaNames = { "Don't Care", "North", "NorthEast", "East", "South", "West" };
+        String[] preferredDurationNames = { "Don't Care", "4hrs or less", "Whole day" };
 
-        String[] mainCourseNames = { "Don't Know", "Beef", "Pork", "Lamb", "Turkey", "Chicken", "Duck", "Fish", "Other" };
+        String[] causesNames = { "Don't Know", "Elderly", "Health", "Community", "Disability", "Children", "Youth", "Social Service", "Other" };
         String[] sauceNames = { "Don't Know", "None", "Spicy", "Sweet", "Cream", "Other" };
         String[] flavorNames = { "Don't Know", "Delicate", "Average", "Strong" };
 
-        String[] preferredColorChoices;
-        String[] preferredBodyChoices;
-        String[] preferredSweetnessChoices;
+        String[] agegroupNames = { "Private", "16-20", "21-35", "36-54", "55 onwards", "Other" };
+        String[] skillNames = { "None", "First Aid", "CPR", "IT", "Special Needs", "Early Childhood", "Medical", "Other" };
+        String[] a_valuesNames = { "Don't Know", "ABC", "XYZ" };
 
-        String[] mainCourseChoices;
+        String[] preferredFrequencyChoices;
+        String[] preferredOrgTypeChoices;
+        String[] preferredAreaChoices;
+        String[] preferredDurationChoices;
+
+        String[] causesChoices;
         String[] sauceChoices;
         String[] flavorChoices;
+
+        String[] agegroupChoices;
+        String[] skillChoices;
+        String[] a_valuesChoices;
 
         private CLIPSNET.Environment clips;
         private bool formLoaded = false;
@@ -69,52 +79,63 @@ namespace VMatch
 
         private void OnLoad()
         {
-            RunWine();
+            RunVWO();
             formLoaded = true;
         }
 
-        private void ColorComboBox_Loaded(object sender, RoutedEventArgs e)
+        private void FrequencyComboBox_Loaded(object sender, RoutedEventArgs e)
         {
-            preferredColorChoices = GenerateChoices(preferredColorNames);
+            preferredFrequencyChoices = GenerateChoices(preferredFrequencyNames);
 
-            var colorComboBox = sender as ComboBox;
+            var frequencyComboBox = sender as ComboBox;
 
-            colorComboBox.ItemsSource = preferredColorChoices;
+            frequencyComboBox.ItemsSource = preferredFrequencyChoices;
 
-            colorComboBox.SelectedIndex = 0;
+            frequencyComboBox.SelectedIndex = 0;
         }
 
-        private void BodyComboBox_Loaded(object sender, RoutedEventArgs e)
+        private void OrgTypeComboBox_Loaded(object sender, RoutedEventArgs e)
         {
-            preferredBodyChoices = GenerateChoices(preferredBodyNames);
+            preferredOrgTypeChoices = GenerateChoices(preferredOrgTypeNames);
 
-            var bodyComboBox = sender as ComboBox;
+            var orgtypeComboBox = sender as ComboBox;
 
-            bodyComboBox.ItemsSource = preferredBodyChoices;
+            orgtypeComboBox.ItemsSource = preferredOrgTypeChoices;
 
-            bodyComboBox.SelectedIndex = 0;
+            orgtypeComboBox.SelectedIndex = 0;
         }
 
-        private void SweetnessComboBox_Loaded(object sender, RoutedEventArgs e)
+        private void AreaComboBox_Loaded(object sender, RoutedEventArgs e)
         {
-            preferredSweetnessChoices = GenerateChoices(preferredSweetnessNames);
+            preferredAreaChoices = GenerateChoices(preferredAreaNames);
 
-            var sweetnessComboBox = sender as ComboBox;
+            var areaComboBox = sender as ComboBox;
 
-            sweetnessComboBox.ItemsSource = preferredSweetnessChoices;
+            areaComboBox.ItemsSource = preferredAreaChoices;
 
-            sweetnessComboBox.SelectedIndex = 0;
+            areaComboBox.SelectedIndex = 0;
         }
 
-        private void MainCourseComboBox_Loaded(object sender, RoutedEventArgs e)
+        private void DurationComboBox_Loaded(object sender, RoutedEventArgs e)
         {
-            mainCourseChoices = GenerateChoices(mainCourseNames);
+            preferredDurationChoices = GenerateChoices(preferredDurationNames);
 
-            var mainCourseComboBox = sender as ComboBox;
+            var durationComboBox = sender as ComboBox;
 
-            mainCourseComboBox.ItemsSource = mainCourseChoices;
+            durationComboBox.ItemsSource = preferredDurationChoices;
 
-            mainCourseComboBox.SelectedIndex = 0;
+            durationComboBox.SelectedIndex = 0;
+        }
+
+        private void CausesComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            causesChoices = GenerateChoices(causesNames);
+
+            var causesComboBox = sender as ComboBox;
+
+            causesComboBox.ItemsSource = causesChoices;
+
+            causesComboBox.SelectedIndex = 0;
         }
 
         private void SauceComboBox_Loaded(object sender, RoutedEventArgs e)
@@ -139,80 +160,143 @@ namespace VMatch
             flavorComboBox.SelectedIndex = 0;
         }
 
+        private void AgeGroupComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            agegroupChoices = GenerateChoices(agegroupNames);
+
+            var agegroupComboBox = sender as ComboBox;
+
+            agegroupComboBox.ItemsSource = agegroupChoices;
+
+            agegroupComboBox.SelectedIndex = 0;
+        }
+
+        private void SkillComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            skillChoices = GenerateChoices(skillNames);
+
+            var skillComboBox = sender as ComboBox;
+
+            skillComboBox.ItemsSource = skillChoices;
+
+            skillComboBox.SelectedIndex = 0;
+        }
+
+        private void a_ValuesComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            a_valuesChoices = GenerateChoices(a_valuesNames);
+
+            var a_valuesComboBox = sender as ComboBox;
+
+            a_valuesComboBox.ItemsSource = a_valuesChoices;
+
+            a_valuesComboBox.SelectedIndex = 0;
+        }
+
         private void OnChange(object sender, SelectionChangedEventArgs e)
         {
             if (formLoaded)
-            { RunWine(); }
+            { RunVWO(); }
         }
 
-        private void RunWine()
+        private void RunVWO()
         {
             clips.Reset();
 
-            string item = (string)colorComboBox.SelectedValue;
+            string item = (string)frequencyComboBox.SelectedValue;
 
-            if (item.Equals("Red"))
-            { clips.AssertString("(attribute (name preferred-color) (value red))"); }
-            else if (item.Equals("White"))
-            { clips.AssertString("(attribute (name preferred-color) (value white))"); }
+            if (item.Equals("Adhoc"))
+            { clips.AssertString("(attribute (name preferred-freq) (value adhoc))"); }
+            else if (item.Equals("Annually"))
+            { clips.AssertString("(attribute (name preferred-freq) (value annually))"); }
             else
-            { clips.AssertString("(attribute (name preferred-color) (value unknown))"); }
+            { clips.AssertString("(attribute (name preferred-freq) (value unknown))"); }
 
-            item = (string)bodyComboBox.SelectedValue;
+            item = (string)orgtypeComboBox.SelectedValue;
 
-            if (item.Equals("Light"))
-            { clips.AssertString("(attribute (name preferred-body) (value light))"); }
-            else if (item.Equals("Medium"))
-            { clips.AssertString("(attribute (name preferred-body) (value medium))"); }
-            else if (item.Equals("Full"))
-            { clips.AssertString("(attribute (name preferred-body) (value full))"); }
+            if (item.Equals("Medical"))
+            { clips.AssertString("(attribute (name preferred-orgtype) (value medical))"); }
+            else if (item.Equals("SocialSvc.Children"))
+            { clips.AssertString("(attribute (name preferred-orgtype) (value ss.children))"); }
+            else if (item.Equals("SocialSvc.Women"))
+            { clips.AssertString("(attribute (name preferred-orgtype) (value ss.women))"); }
+            else if (item.Equals("Animal"))
+            { clips.AssertString("(attribute (name preferred-orgtype) (value animal))"); }
+            else if (item.Equals("Sports"))
+            { clips.AssertString("(attribute (name preferred-orgtype) (value sports))"); }
             else
-            { clips.AssertString("(attribute (name preferred-body) (value unknown))"); }
+            { clips.AssertString("(attribute (name preferred-orgtype) (value unknown))"); }
 
-            item = (string)sweetnessComboBox.SelectedValue;
+            item = (string)areaComboBox.SelectedValue;
 
-            if (item.Equals("Dry"))
-            { clips.AssertString("(attribute (name preferred-sweetness) (value dry))"); }
-            else if (item.Equals("Medium"))
-            { clips.AssertString("(attribute (name preferred-sweetness) (value medium))"); }
-            else if (item.Equals("Sweet"))
-            { clips.AssertString("(attribute (name preferred-sweetness) (value sweet))"); }
+            if (item.Equals("North"))
+            { clips.AssertString("(attribute (name preferred-area) (value north))"); }
+            else if (item.Equals("NorthEast"))
+            { clips.AssertString("(attribute (name preferred-area) (value northeast))"); }
+            else if (item.Equals("East"))
+            { clips.AssertString("(attribute (name preferred-area) (value east))"); }
+            else if (item.Equals("South"))
+            { clips.AssertString("(attribute (name preferred-area) (value south))"); }
+            else if (item.Equals("West"))
+            { clips.AssertString("(attribute (name preferred-area) (value west))"); }
             else
-            { clips.AssertString("(attribute (name preferred-sweetness) (value unknown))"); }
+            { clips.AssertString("(attribute (name preferred-area) (value unknown))"); }
 
-            item = (string)mainCourseComboBox.SelectedValue;
+            item = (string)durationComboBox.SelectedValue;
 
-            if (item.Equals("Beef") ||
-                item.Equals("Pork") ||
-                item.Equals("Lamb"))
+            if (item.Equals("4hrs or less"))
+            { clips.AssertString("(attribute (name preferred-duration) (value halfdayless))"); }
+            else if (item.Equals("Whole day"))
+            { clips.AssertString("(attribute (name preferred-duration) (value wholeday))"); }
+            else
+            { clips.AssertString("(attribute (name preferred-duration) (value unknown))"); }
+
+            item = (string)causesComboBox.SelectedValue;
+
+            if (item.Equals("Elderly") ||
+                item.Equals("Social Service"))
             {
-                clips.AssertString("(attribute (name main-component) (value meat))");
+                clips.AssertString("(attribute (name p-cause) (value socialservice))");
                 clips.AssertString("(attribute (name has-turkey) (value no))");
             }
-            else if (item.Equals("Turkey"))
+            else if (item.Equals("Health"))
             {
-                clips.AssertString("(attribute (name main-component) (value poultry))");
+                clips.AssertString("(attribute (name p-cause) (value health))");
                 clips.AssertString("(attribute (name has-turkey) (value yes))");
             }
-            else if (item.Equals("Chicken") ||
-                     item.Equals("Duck"))
+            else if (item.Equals("Community"))
             {
-                clips.AssertString("(attribute (name main-component) (value poultry))");
+                clips.AssertString("(attribute (name p-cause) (value community))");
                 clips.AssertString("(attribute (name has-turkey) (value no))");
             }
-            else if (item.Equals("Fish"))
+            else if (item.Equals("Disability"))
             {
-                clips.AssertString("(attribute (name main-component) (value fish))");
+                clips.AssertString("(attribute (name p-cause) (value disability))");
+                clips.AssertString("(attribute (name has-turkey) (value no))");
+            }
+            else if (item.Equals("Children"))
+            {
+                clips.AssertString("(attribute (name p-cause) (value children))");
+                clips.AssertString("(attribute (name has-turkey) (value no))");
+            }
+            else if (item.Equals("Youth"))
+            {
+                clips.AssertString("(attribute (name p-cause) (value youth))");
+                clips.AssertString("(attribute (name has-turkey) (value no))");
+            }
+            else if (item.Equals("Social Service"))
+            {
+                clips.AssertString("(attribute (name p-cause) (value socialservice))");
                 clips.AssertString("(attribute (name has-turkey) (value no))");
             }
             else if (item.Equals("Other"))
             {
-                clips.AssertString("(attribute (name main-component) (value unknown))");
+                clips.AssertString("(attribute (name p-cause) (value unknown))");
                 clips.AssertString("(attribute (name has-turkey) (value no))");
             }
             else
             {
-                clips.AssertString("(attribute (name main-component) (value unknown))");
+                clips.AssertString("(attribute (name p-cause) (value unknown))");
                 clips.AssertString("(attribute (name has-turkey) (value unknown))");
             }
 
@@ -256,15 +340,56 @@ namespace VMatch
             else
             { clips.AssertString("(attribute (name tastiness) (value unknown))"); }
 
+            item = (string)agegroupComboBox.SelectedValue;
+            if (item.Equals("16-20"))
+            { clips.AssertString("(attribute (name agegroup) (value 16-20))"); }
+            else if (item.Equals("21-35"))
+            { clips.AssertString("(attribute (name agegroup) (value 21-35))"); }
+            else if (item.Equals("36-54"))
+            { clips.AssertString("(attribute (name agegroup) (value 36-54))"); }
+            else if (item.Equals("55 onwards"))
+            { clips.AssertString("(attribute (name agegroup) (value 55plus))"); }
+            else if (item.Equals("Other"))
+            { clips.AssertString("(attribute (name agegroup) (value other))"); }
+            else
+            { clips.AssertString("(attribute (name agegroup) (value unknown))"); }
+
+            item = (string)skillComboBox.SelectedValue;
+            if (item.Equals("First Aid"))
+            { clips.AssertString("(attribute (name skill) (value firstaid))"); }
+            else if (item.Equals("CPR"))
+            { clips.AssertString("(attribute (name skill) (value cpr))"); }
+            else if (item.Equals("IT"))
+            { clips.AssertString("(attribute (name skill) (value infotech))"); }
+            else if (item.Equals("Special Needs"))
+            { clips.AssertString("(attribute (name skill) (value specialneeds))"); }
+            else if (item.Equals("Early Childhood"))
+            { clips.AssertString("(attribute (name skill) (value earlychild))"); }
+            else if (item.Equals("Medical"))
+            { clips.AssertString("(attribute (name skill) (value medical))"); }
+            else if (item.Equals("Other"))
+            { clips.AssertString("(attribute (name skill) (value other))"); }
+            else
+            { clips.AssertString("(attribute (name skill) (value unknown))"); }
+
+            item = (string)a_valuesComboBox.SelectedValue;
+            if (item.Equals("ABC"))
+            { clips.AssertString("(attribute (name a_values) (value abc))"); }
+            else if (item.Equals("XYZ"))
+            { clips.AssertString("(attribute (name a_values) (value xyz))"); }
+            else
+            { clips.AssertString("(attribute (name a_values) (value unknown))"); }
+
             clips.Run();
 
-            UpdateWines();
+            UpdateVWOs();
         }
 
-        private void UpdateWines()
+        private void UpdateVWOs()
         {
-            string evalStr = "(WINES::get-wine-list)";
-            List<WineRecommendation> wineList = new List<WineRecommendation>();
+            //string evalStr = "(WINES::get-wine-list)";
+            string evalStr = "(VWOs::get-vwo-list)";
+            List<VWORecommendation> vwoList = new List<VWORecommendation>();
 
             foreach (FactAddressValue fv in clips.Eval(evalStr) as MultifieldValue)
             {
@@ -272,7 +397,7 @@ namespace VMatch
 
                 String vwoName = ((LexemeValue)fv["value"]).Value;
 
-                wineList.Add(new WineRecommendation()
+                vwoList.Add(new VWORecommendation()
                 {
                     VwoName = vwoName,
                     Certainty = certainty,
@@ -282,7 +407,21 @@ namespace VMatch
                 });
             }
 
-            resultsDataGridView.ItemsSource = wineList;
+            resultsDataGridView.ItemsSource = vwoList;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            frequencyComboBox.SelectedIndex = 0;
+			orgtypeComboBox.SelectedIndex = 0;
+			areaComboBox.SelectedIndex = 0;
+			durationComboBox.SelectedIndex = 0;
+			causesComboBox.SelectedIndex = 0;
+			sauceComboBox.SelectedIndex = 0;
+			flavorComboBox.SelectedIndex = 0;
+			agegroupComboBox.SelectedIndex = 0;
+			skillComboBox.SelectedIndex = 0;
+			a_valuesComboBox.SelectedIndex = 0;
         }
     }
 }
