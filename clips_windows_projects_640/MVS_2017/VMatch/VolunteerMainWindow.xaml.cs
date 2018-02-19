@@ -35,8 +35,10 @@ namespace VMatch
         String[] preferredDurationNames = { "Don't Care", "4hrs or less", "Whole day" };
 
         String[] causesNames = { "Don't Know", "Elderly", "Health", "Community", "Disability", "Children", "Youth", "Social Service", "Other" };
-        String[] sauceNames = { "Don't Know", "None", "Spicy", "Sweet", "Cream", "Other" };
-        String[] flavorNames = { "Don't Know", "Delicate", "Average", "Strong" };
+        String[] dayNames = { "No Preference", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Any Weekday", "Any Weekend" };
+        String[] locationNames = { "No Preference", "Islandwide", "Ang Mo Kio", "Bedok", "Bishan", "Boon Lay", "Bukit Batok", "Bukit Merah", "Bukit Pangjang", "Bukit Timah", "Choa Chu Kang",
+                                    "Downtown Core", "Geylang", "Hougang", "Jurong East", "Kallang", "Novena", "Orchard", "Outram", "Paya Lebar", "Pioneer", "Punggol", "Queenstown",
+                                    "River Valley", "Rochor", "Sembawang", "Sengkang", "Serangoon", "Tampines", "Tanglin", "Toa Payoh", "Woodlands", "Yishun"  };
 
         String[] agegroupNames = { "Private", "16-20", "21-35", "36-54", "55 onwards", "Other" };
         String[] skillNames = { "None", "First Aid", "CPR", "IT", "Special Needs", "Early Childhood", "Medical", "Other" };
@@ -48,8 +50,8 @@ namespace VMatch
         String[] preferredDurationChoices;
 
         String[] causesChoices;
-        String[] sauceChoices;
-        String[] flavorChoices;
+        String[] dayChoices;
+        String[] locationChoices;
 
         String[] agegroupChoices;
         String[] skillChoices;
@@ -138,26 +140,28 @@ namespace VMatch
             causesComboBox.SelectedIndex = 0;
         }
 
-        private void SauceComboBox_Loaded(object sender, RoutedEventArgs e)
+        private void DayComboBox_Loaded(object sender, RoutedEventArgs e)
         {
-            sauceChoices = GenerateChoices(sauceNames);
+            dayChoices = GenerateChoices(dayNames);
 
-            var sauceComboBox = sender as ComboBox;
+            var dayComboBox = sender as ComboBox;
 
-            sauceComboBox.ItemsSource = sauceChoices;
+            dayComboBox.ItemsSource = dayChoices;
 
-            sauceComboBox.SelectedIndex = 0;
+            dayComboBox.SelectedIndex = 0;
         }
 
-        private void FlavorComboBox_Loaded(object sender, RoutedEventArgs e)
+        // Location selection and clips assert to location hard to work until we can assign a variable to "locationChoices" in CLIPS.
+
+        private void LocationComboBox_Loaded(object sender, RoutedEventArgs e)
         {
-            flavorChoices = GenerateChoices(flavorNames);
+            locationChoices = GenerateChoices(locationNames);
 
-            var flavorComboBox = sender as ComboBox;
+            var locationComboBox = sender as ComboBox;
 
-            flavorComboBox.ItemsSource = flavorChoices;
+            locationComboBox.ItemsSource = locationChoices;
 
-            flavorComboBox.SelectedIndex = 0;
+            locationComboBox.SelectedIndex = 0;
         }
 
         private void AgeGroupComboBox_Loaded(object sender, RoutedEventArgs e)
@@ -300,7 +304,7 @@ namespace VMatch
                 clips.AssertString("(attribute (name has-turkey) (value unknown))");
             }
 
-            item = (string)sauceComboBox.SelectedValue;
+            item = (string)dayComboBox.SelectedValue;
 
             if (item.Equals("None"))
             { clips.AssertString("(attribute (name has-sauce) (value no))"); }
@@ -330,15 +334,13 @@ namespace VMatch
                 clips.AssertString("(attribute (name sauce) (value unknown))");
             }
 
-            item = (string)flavorComboBox.SelectedValue;
-            if (item.Equals("Delicate"))
-            { clips.AssertString("(attribute (name tastiness) (value delicate))"); }
-            else if (item.Equals("Average"))
-            { clips.AssertString("(attribute (name tastiness) (value average))"); }
-            else if (item.Equals("Strong"))
-            { clips.AssertString("(attribute (name tastiness) (value strong))"); }
+            // Location selection and clips assert to location hard to work until we can assign a variable to "locationChoices" in CLIPS.
+
+            item = (string)locationComboBox.SelectedValue;
+            if (item.Equals("No Preference"))
+            { clips.AssertString("(attribute (name preferred-location) (value unknown))"); }
             else
-            { clips.AssertString("(attribute (name tastiness) (value unknown))"); }
+            { clips.AssertString("(attribute (name preferred-location) (value ))"); }
 
             item = (string)agegroupComboBox.SelectedValue;
             if (item.Equals("16-20"))
@@ -387,7 +389,6 @@ namespace VMatch
 
         private void UpdateVWOs()
         {
-            //string evalStr = "(WINES::get-wine-list)";
             string evalStr = "(VWOs::get-vwo-list)";
             List<VWORecommendation> vwoList = new List<VWORecommendation>();
 
@@ -417,8 +418,8 @@ namespace VMatch
 			areaComboBox.SelectedIndex = 0;
 			durationComboBox.SelectedIndex = 0;
 			causesComboBox.SelectedIndex = 0;
-			sauceComboBox.SelectedIndex = 0;
-			flavorComboBox.SelectedIndex = 0;
+			dayComboBox.SelectedIndex = 0;
+			locationComboBox.SelectedIndex = 0;
 			agegroupComboBox.SelectedIndex = 0;
 			skillComboBox.SelectedIndex = 0;
 			a_valuesComboBox.SelectedIndex = 0;

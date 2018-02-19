@@ -116,10 +116,10 @@
   (rule (if preferred-orgtype is animal)
         (then best-orgtype is animal))
 
-  (rule (if tastiness is delicate)
+  (rule (if preferred-location is delicate)
         (then best-orgtype is ss.children))
 
-  (rule (if tastiness is average)
+  (rule (if preferred-location is average)
         (then best-orgtype is ss.children with certainty 30 and
               best-orgtype is medical with certainty 60 and
               best-orgtype is ss.women with certainty 30))
@@ -199,10 +199,10 @@
   
   ; Rules for picking the best area
 
-  (rule (if has-sauce is yes and
-            sauce is sweet)
-        (then best-area is east with certainty 90 and
-              best-area is northeast with certainty 40))
+  ; (rule (if has-sauce is yes and
+  ;          sauce is sweet)
+  ;      (then best-area is east with certainty 90 and
+  ;            best-area is northeast with certainty 40))
 
   (rule (if preferred-area is north)
         (then best-area is north with certainty 80))
@@ -309,7 +309,7 @@
   (attribute (name b-cause) (value any))
   (attribute (name b-age) (value any)))
 
-(deftemplate VWOs::wine
+(deftemplate VWOs::vwo
   (slot name (default ?NONE))
   (multislot freq (default any))
   (multislot orgtype (default any))
@@ -319,19 +319,19 @@
   (multislot age (default any)))
 
 (deffacts VWOs::the-vwo-list 
-  (wine (name "Singapore Red Cross") (freq adhoc) (orgtype medical) (area northeast east south) (cause medical))
-  (wine (name "AWWA_Lunch-Assistant-For-Seniors") (freq adhoc) (orgtype ss.women) (area north northeast) (duration halfdayless) (cause elderly))
-  (wine (name "SPCA") (freq annually) (orgtype animal) (area west north) (age youth middle))
-  (wine (name "StLuke_AdHoc") (freq adhoc) (orgtype medical) (area west) (duration flexible) (age any))
-  (wine (name "SouthCentral_CNY-Event") (freq adhoc) (orgtype ss.children) (area south central) (duration wholeday) (age any))
-  (wine (name "ShanYou_Good-Day-Out") (freq adhoc) (orgtype ss.children medical) (area central))
-  (wine (name "StudentCareService") (freq adhoc) (orgtype ss.children) (duration flexible) (area northeast) (cause children youth education family) (age youth middle))
-  (wine (name "StanChart_Singapore-Marathon") (freq annually) (orgtype sports) (area south) (cause health) (duration wholeday))
-  (wine (name "VWO F") (freq adhoc) (orgtype ss.children))
-  (wine (name "VWO G") (freq adhoc) (area northeast)))  
+  (vwo (name "Singapore Red Cross") (freq adhoc) (orgtype medical) (area northeast east south) (cause medical))
+  (vwo (name "AWWA_Lunch-Assistant-For-Seniors") (freq adhoc) (orgtype ss.women) (area north northeast) (duration halfdayless) (cause elderly))
+  (vwo (name "SPCA") (freq annually) (orgtype animal) (area west north) (age youth middle))
+  (vwo (name "StLuke_AdHoc") (freq adhoc) (orgtype medical) (area west) (duration flexible) (age any))
+  (vwo (name "SouthCentral_CNY-Event") (freq adhoc) (orgtype ss.children) (area south central) (duration wholeday) (age any))
+  (vwo (name "ShanYou_Good-Day-Out") (freq adhoc) (orgtype ss.children medical) (area central))
+  (vwo (name "StudentCareService") (freq adhoc) (orgtype ss.children) (duration flexible) (area northeast) (cause children youth education family) (age youth middle))
+  (vwo (name "StanChart_Singapore-Marathon") (freq annually) (orgtype sports) (area south) (cause health) (duration wholeday))
+  (vwo (name "VWO F") (freq adhoc) (orgtype ss.children))
+  (vwo (name "VWO G") (freq adhoc) (area northeast)))  
   
 (defrule VWOs::generate-VWOs
-  (wine (name ?name)
+  (vwo (name ?name)
         (freq $? ?q $?)
         (orgtype $? ?t $?)
         (area $? ?a $?)
@@ -345,7 +345,7 @@
   (attribute (name b-cause) (value ?c) (certainty ?certainty-5))
   (attribute (name b-age) (value ?g) (certainty ?certainty-6))
   =>
-  (assert (attribute (name wine) (value ?name)
+  (assert (attribute (name vwo) (value ?name)
                      (certainty (min ?certainty-1 ?certainty-2 ?certainty-3 ?certainty-4 ?certainty-5 ?certainty-6)))))
 
 (deffunction VWOs::vwo-sort (?w1 ?w2)
@@ -354,7 +354,7 @@
       
 (deffunction VWOs::get-vwo-list ()
   (bind ?facts (find-all-facts ((?f attribute))
-                               (and (eq ?f:name wine)
+                               (and (eq ?f:name vwo)
                                     (>= ?f:certainty 15))))
   (sort vwo-sort ?facts))
   
