@@ -5,34 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VMatch"
         mc:Ignorable="d"
-        Title="Volunteer Matching" Height="720" Width="1280" ResizeMode="CanMinimize">
-    <Grid x:Name="WineDemoGrid" Margin="0,0,2,0">
-        <GroupBox x:Name="preferencesGroupBox" Header="Your Personal Preferences" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="116" Width="230">
-            <Grid HorizontalAlignment="Left" Height="96" Margin="0,0,0,0" VerticalAlignment="Top" Width="220">
-                <ComboBox x:Name="colorComboBox" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="120" Loaded="ColorComboBox_Loaded" SelectionChanged="OnChange"/>
-                <ComboBox x:Name="bodyComboBox" HorizontalAlignment="Left" Margin="90,37,0,0" VerticalAlignment="Top" Width="120"  Loaded="BodyComboBox_Loaded" SelectionChanged="OnChange"/>
-                <ComboBox x:Name="sweetnessComboBox" HorizontalAlignment="Left" Margin="90,64,0,0" VerticalAlignment="Top" Width="120"  Loaded="SweetnessComboBox_Loaded" SelectionChanged="OnChange"/>
-                <Label x:Name="colorLabel" Content="Preference A:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="bodyLabel" Content="Preference B:" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="sweetnessLabel" Content="Preference C:" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
+        Title="Volunteer Matching" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    
+    <Grid x:Name="VWOGrid" Margin="0,0,2,0">
+        <GroupBox x:Name="preferencesGroupBox" Header="Your Personal Preferences" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="152" Width="330">
+            <Grid HorizontalAlignment="Left" Height="128" Margin="0,0,0,0" VerticalAlignment="Top" Width="320">
+                <ComboBox x:Name="frequencyComboBox" HorizontalAlignment="Left" Margin="125,10,0,0" VerticalAlignment="Top" Width="180" Loaded="FrequencyComboBox_Loaded" SelectionChanged="OnChange"/>
+                <ComboBox x:Name="orgtypeComboBox" HorizontalAlignment="Left" Margin="125,37,0,0" VerticalAlignment="Top" Width="180"  Loaded="OrgTypeComboBox_Loaded" SelectionChanged="OnChange"/>
+                <ComboBox x:Name="areaComboBox" HorizontalAlignment="Left" Margin="125,64,0,0" VerticalAlignment="Top" Width="180"  Loaded="AreaComboBox_Loaded" SelectionChanged="OnChange"/>
+                <ComboBox x:Name="durationComboBox" HorizontalAlignment="Left" Margin="125,91,0,0" VerticalAlignment="Top" Width="180"  Loaded="DurationComboBox_Loaded" SelectionChanged="OnChange"/>
+                <Label x:Name="frequencyLabel" Content="Frequency:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="orgtypeLabel" Content="Organisation Type:" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="areaLabel" Content="Area:" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="durationLabel" Content="Duration:" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
 
-        <GroupBox x:Name="mealGroupBox" Header="VWO Preferences" HorizontalAlignment="Left" Margin="245,10,0,0" VerticalAlignment="Top" Height="116" Width="242">
-            <Grid HorizontalAlignment="Left" Height="96" Margin="0,0,0,0" VerticalAlignment="Top" Width="232">
+        <GroupBox x:Name="VWOGroupBox" Header="VWO Preferences" HorizontalAlignment="Left" Margin="360,10,0,0" VerticalAlignment="Top" Height="116" Width="315">
+            <Grid HorizontalAlignment="Left" Height="96" Margin="0,0,0,0" VerticalAlignment="Top" Width="305">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="23*"/>
-                    <ColumnDefinition Width="197*"/>
+                    <ColumnDefinition Width="85*"/>
+                    <ColumnDefinition Width="195*"/>
                 </Grid.ColumnDefinitions>
-                <ComboBox x:Name="mainCourseComboBox" HorizontalAlignment="Left" Margin="78,10,0,0" VerticalAlignment="Top" Width="120" Loaded="MainCourseComboBox_Loaded" SelectionChanged="OnChange" Grid.Column="1"/>
-                <ComboBox x:Name="sauceComboBox" HorizontalAlignment="Left" Margin="78,37,0,0" VerticalAlignment="Top" Width="120"  Loaded="SauceComboBox_Loaded" SelectionChanged="OnChange" Grid.Column="1"/>
-                <ComboBox x:Name="flavorComboBox" HorizontalAlignment="Left" Margin="78,64,0,0" VerticalAlignment="Top" Width="120"  Loaded="FlavorComboBox_Loaded" SelectionChanged="OnChange" Grid.Column="1"/>
-                <Label x:Name="mainCourseLabel" Content="Causes:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                <Label x:Name="sauceLabel" Content="Day of Event:" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                <Label x:Name="flavorLabel" Content="Location:" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <ComboBox x:Name="causesComboBox" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Width="180" Loaded="CausesComboBox_Loaded" SelectionChanged="OnChange" Grid.Column="1"/>
+                <ComboBox x:Name="dayComboBox" HorizontalAlignment="Left" Margin="18,37,0,0" VerticalAlignment="Top" Width="180"  Loaded="DayComboBox_Loaded" SelectionChanged="OnChange" Grid.Column="1"/>
+                <ComboBox x:Name="locationComboBox" HorizontalAlignment="Left" Margin="18,64,0,0" VerticalAlignment="Top" Width="180"  Loaded="LocationComboBox_Loaded" SelectionChanged="OnChange" Grid.Column="1"/>
+                <Label x:Name="causesLabel" Content="Causes:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <Label x:Name="dayLabel" Content="Day of Event:" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <Label x:Name="locationLabel" Content="Location:" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
             </Grid>
         </GroupBox>
-        <DataGrid x:Name="resultsDataGridView" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top" Height="540" Width="476" RowHeaderWidth="0" AutoGenerateColumns="False" ColumnWidth="*" CanUserResizeRows="False" CanUserAddRows="False">
+        
+        <GroupBox x:Name="volProfGroupBox" Header="Volunteer Profile" HorizontalAlignment="Left" Margin="360,130,0,0" VerticalAlignment="Top" Height="116" Width="315">
+            <Grid HorizontalAlignment="Left" Height="96" Margin="0,0,0,0" VerticalAlignment="Top" Width="305">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="85*"/>
+                    <ColumnDefinition Width="195*"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="agegroupComboBox" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Width="180" Loaded="AgeGroupComboBox_Loaded" SelectionChanged="OnChange" Grid.Column="1"/>
+                <ComboBox x:Name="skillComboBox" HorizontalAlignment="Left" Margin="18,37,0,0" VerticalAlignment="Top" Width="180"  Loaded="SkillComboBox_Loaded" SelectionChanged="OnChange" Grid.Column="1"/>
+                <ComboBox x:Name="a_valuesComboBox" HorizontalAlignment="Left" Margin="18,64,0,0" VerticalAlignment="Top" Width="180"  Loaded="a_ValuesComboBox_Loaded" SelectionChanged="OnChange" Grid.Column="1"/>
+                <Label x:Name="agegroupLabel" Content="Age Group:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <Label x:Name="skillLabel" Content="Skills:" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <Label x:Name="a_valuesLabel" Content="Values:" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            </Grid>
+        </GroupBox>
+        
+        <DataGrid x:Name="resultsDataGridView" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" Height="410" Width="665" RowHeaderWidth="0" AutoGenerateColumns="False" ColumnWidth="*" CanUserResizeRows="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=VwoName}" Header="Voluntary Welfare Organisation" IsReadOnly="True"/>
                 <DataGridTemplateColumn Header="Recommendation Weight" IsReadOnly="True">
@@ -54,7 +73,8 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Image HorizontalAlignment="Left" Height="667" Margin="520,10,0,0" VerticalAlignment="Top" Width="725" Source="/VMatch Drawings_cr.png" Stretch="UniformToFill"/>
+        <Image HorizontalAlignment="Left" Height="590" Margin="678,30,0,0" VerticalAlignment="Top" Width="590" Source="C:\Users\sercy\Source\Repos\KE4102_Volunteer_Matching\clips_windows_projects_640\MVS_2017\VMatch\VMatch Drawing v2_cr.png" Stretch="Fill"/>
+        <Button Content="Reset" HorizontalAlignment="Left" Margin="130,195,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click"/>
 
     </Grid>
 </Window>
