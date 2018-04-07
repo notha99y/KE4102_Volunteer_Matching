@@ -25,55 +25,57 @@ and then recommends a ranked list of VWO and their events. <br>
 The matching engine is written using a rule based programming language (CLIPS) [4], which allow weighted
 rankings recommendation instead of filter system that we find in most websites.
 
-# Problem Formulation
-The scheduling problem of an earth observation satellite is a large and difficult combinatorial optimization problem. <br>
-Thankfully, such a scheduling problem is well-studied with numerous papers stating different problem formulations. <br>
-Some notable formulations are the generalized knapsack formulation, which is well-known to be NP-hard, adopted in [2]. <br>
-In [3], it discusses the possibility of using linear integer programming formulation with CPLEX or as a constraint satisfaction problem formulation. <br>
-For this demo, we shall adopt a Constraint-Optimization Problem (COP) formulation using Object Oriented Programming(OOP). <br>
+#Certainty Factor
+We use the certainty factor (CF) method [9]to calculate the weightage of a recommendation.
+For example, if a volunteer prefers to go for an event in Central. The CF will be modelled as such:
+- Central: CF = 100%, North: CF = 70%, South: CF = 70%, East: CF = 0%, West: CF = 0%.
 
-COP refers to a set of problems that requires the optimization of an objective function with respect to some variables in the presence of constraints on those variables. <br>
 
-# Object Used
-The objects used are summarized in the class table below. <br>
-The classes Imaging Missions, Satellites and Ground Stations are user inputs designed by the users to fulfil the mission requirements. <br>
-Imaging Opportunities and Downlink are derived classes which the programme would automatically generate after the users has specified the Tasks and Resources he/she wants to simulate for a given Scenario time frame. <br>
+## User guide
+VMatch is an expert system that recommends suitable volunteering events with respect to a set of given user
+inputs characterizing the volunteer. The rules are designed through iterations of knowledge elicitation from
+interviews with domain experts, VWOs and volunteers, surveys and web scraping. The rules are then modelled
+and built using C Language Integrated Production System (CLIPS) which uses the Rete Algorithm to carry out
+the rule firing. This summarizes what is going on under the hood. VMatch.exe is the executable file which
+would open a simple and intuitive Graphic User Interface (GUI) which is decomposed into two main
+components: user inputs (top-half) and recommended events (bottom-half). As the GUI was written in C#
+and compiled into an exe. file, our mac friends would unfortunately not be able to open it. However, there are
+many ways to go around that: dual boot, virtual machine, using WINE etc..
 
-<img src="classhiearchy.JPG" alt="class hierarchy" style="width: 100px;"/>
+### How to run
+1. Clone this repo to your local machine
+2. Go to the ‘C:\’ directory and create a new folder called ‘VMatch’
+3. Copy the contents of the Release folder into ‘C:\VMatch’
+4. Double click on the VMatch.exe
 
-# Algorithm
-<!-- <img src="algorithm.png" alt="algo" style="width: 100px;"/> -->
-![Algo](algorithm.PNG)
+### GUI
+This would launch the VMatch GUI as shown below in Fig. 1. In the User Inputs area, you can click on
+the drop down boxes to choose the attributes of the volunteer you wish to model. By default, the volunteer
+model would have no preference and the Recommended Events area would show the events and their
+respective recommendation weights for a volunteer with no preference. A reset button is there to restart
+your volunteer model to the default.
 
-## Objective function
-<!-- $$Score_i = k_a a_i + k_b b_i + k_c c_i + k_d d_i + k_e e_i$$ -->
+### Description of the attributes
+- Age Group: Volunteer’s age
+- Day Available: Volunteer’s preferred availability of the week
+- Primary Skill: Volunteer’s skill that is able to value-add the event. The options are chosen from the
+requirements of the events available
+- My Group Size: The number of friends the volunteer would want to attend the event with
+- Duration: The time in which the volunteer is able to commit for the event in a given day
+- Frequency: How frequent is the volunteer able to commit his/her time
+- Causes: What is the cause in which the volunteer stand for
+- Area: Volunteer’s preferred area for the event to be held in
 
-<p align="center">
-<a href="https://www.codecogs.com/eqnedit.php?latex=$$Score_i&space;=&space;k_a&space;a_i&space;&plus;&space;k_b&space;b_i&space;&plus;&space;k_c&space;c_i&space;&plus;&space;k_d&space;d_i&space;&plus;&space;k_e&space;e_i$$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$$Score_i&space;=&space;k_a&space;a_i&space;&plus;&space;k_b&space;b_i&space;&plus;&space;k_c&space;c_i&space;&plus;&space;k_d&space;d_i&space;&plus;&space;k_e&space;e_i$$" title="$$Score_i = k_a a_i + k_b b_i + k_c c_i + k_d d_i + k_e e_i$$" /></a>
+### Demo
+#### Case 1: Default
+<p align ="center">
+![case1](case1.JPG)
 </p>
-
-
-## To run
-1. Create the Resource and Imaging Mission by changing and running the creating_IM_params.py and creating_resource_params.py file (you can skip this step to run the sample simulation I have created.)
-2. Open the main.py file and uncomment out the algorithm you want to use. Run it.
-3. This would generate 2 .csv files per orbit (Results and Remaining targets)
-4. To plot, open the subplotting.py file and change the numberOfOrbits variable to the same as the last number of the orbit.
-
-## Plots
-![plots](plotting_results.png)
-The Mission is simulated to complete in 8 orbits. The plot is taken in the frame with respect to the satellite orbit path.
-
-### Mission Requirements
-- 20 distinct point targets scattered at Near Equatorial Orbit.
-- All to be imaged twice
-- All to be imaged using an Optical Sensor
-- The maximum look angle is set to be 45deg
-- Priorities were set to be all equal
-
-### Resources
-- One Satellite with an Optical Sensor and a carry capacity of 8 images.
-- Satellite agility was modelled have an average angular speed of 0.0628 rad/s
-- One Ground Station at
+#### Case 2:
+<p align = "center">
+![case2a](case2a.JPG)
+![case2b](case2b.JPG)
+</p>
 
 # References
 [1] NATIONAL VOLUNTEER & PHILANTHROPY CENTRE, "Individual Giving Survey 2016 Findings,"
