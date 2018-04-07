@@ -33,7 +33,7 @@ rankings recommendation instead of filter system that we find in most websites.
 
 # Data Accquisition Pipeline
 ![Webscrap](Webscrapping.png) <br>
-![sct](scrap clean transform.png)
+![sct](scrapcleantransform.png)
 
 
 # Certainty Factor
