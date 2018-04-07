@@ -25,6 +25,17 @@ and then recommends a ranked list of VWO and their events. <br>
 The matching engine is written using a rule based programming language (CLIPS) [4], which allow weighted
 rankings recommendation instead of filter system that we find in most websites.
 
+#Dependency Diagram
+![Dependency](Dependency Diagram.png)
+
+#Inference Structure Diagram
+![Inference](Inference Structure Diagram.png)
+
+#Data Accquisition Pipeline
+![Webscrap](Webscrapping.png) <br>
+![sct](scrap clean transform.png)
+
+
 #Certainty Factor
 We use the certainty factor (CF) method [9]to calculate the weightage of a recommendation.
 For example, if a volunteer prefers to go for an event in Central. The CF will be modelled as such:
@@ -49,11 +60,13 @@ many ways to go around that: dual boot, virtual machine, using WINE etc..
 4. Double click on the VMatch.exe
 
 ### GUI
-This would launch the VMatch GUI as shown below in Fig. 1. In the User Inputs area, you can click on
+This would launch the VMatch GUI as shown below. In the User Inputs area, you can click on
 the drop down boxes to choose the attributes of the volunteer you wish to model. By default, the volunteer
 model would have no preference and the Recommended Events area would show the events and their
 respective recommendation weights for a volunteer with no preference. A reset button is there to restart
 your volunteer model to the default.
+
+![GUI](GUI,png)
 
 ### Description of the attributes
 - Age Group: Volunteer’s age
