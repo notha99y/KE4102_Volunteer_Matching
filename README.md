@@ -76,10 +76,30 @@ The Mission is simulated to complete in 8 orbits. The plot is taken in the frame
 - One Ground Station at
 
 # References
-[1] John L. Mohammed. Spacecaps: Automated mission planning for the techsat 21 formation-
-ying cluster experiment. FLAIRS-02 Proceedings, 2002. <br>
-[2] Jin-Kao Hao Michel Vasquez. A \logic-constrained" knapsack formulation and a tabu al-
-gorithm for the daily photograph scheduling of an earth observation satellite. Journal of
-Computational Optimization and Applications, 2000. <br>
-[3] J.C. Agnese N.Bataille D. Blumstein E. Bensana, G. Verfaillie. Exact and inexact methods
-for the daily management of an earth observation satellite. European Space Agency, 1996. <br>
+[1] NATIONAL VOLUNTEER & PHILANTHROPY CENTRE, "Individual Giving Survey 2016 Findings,"
+15 March 2017. [Online]. Available: https://www.nvpc.org.sg/resources/individual-giving-survey-2016-
+findings. [Accessed 22 Febuary 2018]. <br>
+[2] Ministry of Culture, Community and Youth, Charities Unit, "Commissioner of Charities Annual Report,"
+August 2017. [Online]. Available:
+https://www.charities.gov.sg/Publications/Documents/Commissioner%20of%20Charities%20Annual%20R
+eport%202016.pdf. [Accessed 22 Febuary 2018]. <br>
+[3] National Volunteer & Philanthropy Centre (NVPC), "giving.sg," [Online]. Available:
+https://www.giving.sg/search?type=volunteer. [Accessed 23 Feburary 2018]. <br>
+[4] G. Riley, "About CLIPS," [Online]. Available: http://www.clipsrules.net/?q=AboutCLIPS. [Accessed 23
+Feburary 2018]. <br>
+[5] Singapore Ministry of Social and Family Development (MSF) , "Voluntary Welfare Organisations," 20
+December 2016. [Online]. Available: https://www.msf.gov.sg/policies/Voluntary-Welfare-
+Organisations/Pages/default.aspx. [Accessed 23 Feburary 2018]. <br>
+[6] Ministry of Culture, Community and Youth, "About Charities And IPCs," 11 January 2016. [Online].
+Available: https://www.charities.gov.sg/setting-up-a-charity/Pages/About-Charities-And-IPCs.aspx.
+[Accessed 3 March 2018]. <br>
+[7] HOPE worldwide (Singapore), "About Us ( HOPE worldwide (Singapore))," 2015. [Online]. Available:
+https://www.hopewwsea.org/who-we-are/. [Accessed 3 March 2018]. <br>
+[8] C. P. Team, "Matching Volunteers with Voluntary Welfare Organisations," 10 Febuary 2018. [Online].
+Available:
+https://docs.google.com/forms/d/e/1FAIpQLSf6jNdjbOMw0M0qcSPEUduDpOUYCodo_bJfqRqAjtx9ox
+lNzQ/viewform. <br>
+[9] R. 0. D. BRUCE G. BUCHANAN, "Principles of Rule-Based Expert Systems," New York: Academic Press,
+Advances in Computers, Vol.22, 1982. <br>
+[10] Microsoft Developer Network, "Implementing the MVVM Pattern," Microsoft, [Online]. Available:
+https://msdn.microsoft.com/en-us/library/gg405484(v=pandp.40).aspx. [Accessed 23 Feburary 2018].
