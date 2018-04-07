@@ -26,10 +26,10 @@ The matching engine is written using a rule based programming language (CLIPS) [
 rankings recommendation instead of filter system that we find in most websites.
 
 # Dependency Diagram
-![Dependency](Dependency Diagram.png)
+![Dependency](DependencyDiagram.png)
 
 # Inference Structure Diagram
-![Inference](Inference Structure Diagram.png)
+![Inference](InferenceStructureDiagram.png)
 
 # Data Accquisition Pipeline
 ![Webscrap](Webscrapping.png) <br>
