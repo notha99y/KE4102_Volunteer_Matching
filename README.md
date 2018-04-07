@@ -68,14 +68,10 @@ requirements of the events available
 
 ### Demo
 #### Case 1: Default
-<p align ="center">
 ![case1](case1.JPG)
-</p>
 #### Case 2:
-<p align = "center">
-![case2a](case2a.JPG)
+![case2a](case2a.JPG) <br>
 ![case2b](case2b.JPG)
-</p>
 
 # References
 [1] NATIONAL VOLUNTEER & PHILANTHROPY CENTRE, "Individual Giving Survey 2016 Findings,"
