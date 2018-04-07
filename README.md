@@ -16,7 +16,7 @@ We owe our knowledge elicitation to the following domain experts:
 - Mr. Jim
 - Ms Adelina Kuan
 
-#Introduction
+# Introduction
 In this repo, you will find code to a platform that provides recommendations of volunteering events
 based on the user’s preferences. <br>
 The platform is essentially an expert system that takes in the key preferences from the user
@@ -25,18 +25,18 @@ and then recommends a ranked list of VWO and their events. <br>
 The matching engine is written using a rule based programming language (CLIPS) [4], which allow weighted
 rankings recommendation instead of filter system that we find in most websites.
 
-#Dependency Diagram
+# Dependency Diagram
 ![Dependency](Dependency Diagram.png)
 
-#Inference Structure Diagram
+# Inference Structure Diagram
 ![Inference](Inference Structure Diagram.png)
 
-#Data Accquisition Pipeline
+# Data Accquisition Pipeline
 ![Webscrap](Webscrapping.png) <br>
 ![sct](scrap clean transform.png)
 
 
-#Certainty Factor
+# Certainty Factor
 We use the certainty factor (CF) method [9]to calculate the weightage of a recommendation.
 For example, if a volunteer prefers to go for an event in Central. The CF will be modelled as such:
 - Central: CF = 100%, North: CF = 70%, South: CF = 70%, East: CF = 0%, West: CF = 0%.
@@ -66,7 +66,7 @@ model would have no preference and the Recommended Events area would show the ev
 respective recommendation weights for a volunteer with no preference. A reset button is there to restart
 your volunteer model to the default.
 
-![GUI](GUI,png)
+![GUI](GUI.png)
 
 ### Description of the attributes
 - Age Group: Volunteer’s age
